@@ -31,10 +31,10 @@ pipeline {
                     sh 'mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation'
                     }
                 }
-            }
-            post {
-                always {
-                    gatlingArchive()
+                post {
+                    always {
+                        gatlingArchive()
+                    }
                 }
             }
         }
