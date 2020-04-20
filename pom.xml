@@ -32,7 +32,7 @@
       <groupId>io.gatling</groupId>
       <artifactId>gatling-recorder</artifactId>
       <version>${gatling.version}</version>
-    </dependency
+    </dependency>
   </dependencies>
 
   <build>
