@@ -28,7 +28,7 @@ pipeline {
             agent { label 'linux-performance-testing-1' }
             steps {
                 script {
-                    sh 'mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation'
+                    sh 'mvn gatling:test'
                     }
                 }
                 post {
