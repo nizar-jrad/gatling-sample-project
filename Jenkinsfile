@@ -6,10 +6,7 @@ pipeline {
         stage('Checkout') {
             agent { label 'linux-performance-testing-1' }
             steps {
-                checkout([$class: 'GitSCM',
-                  branches: scm.branches,
-                  extensions: scm.extensions + [[$class: 'WipeWorkspace']],
-                  userRemoteConfigs: scm.userRemoteConfigs])
+                checkout([$class: 'GitSCM'])
             }
         }
 
