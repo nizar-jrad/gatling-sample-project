@@ -6,7 +6,21 @@ pipeline {
         stage('Checkout') {
             agent { label 'linux-performance-testing-1' }
             steps {
-                checkout([$class: 'GitSCM'])
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'refs/heads/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: baseline.dir]],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[url: baseline.project]]
+                ])
+            }
+        }
+
+        stage("Build Maven") {
+            agent { label 'linux-performance-testing-1' }
+            steps {
+                sh 'mvn -B clean package'
             }
         }
 
@@ -14,20 +28,15 @@ pipeline {
             agent { label 'linux-performance-testing-1' }
             steps {
                 script {
-                    sh 'mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation -Dgatling.useOldJenkinsJUnitSupport=true'
+                    sh 'mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation'
                     }
                 }
             }
             post {
                 always {
-                    junit 'target/gatling/assertions-*.xml'
+                    gatlingArchive()
                 }
             }
         }
-
-        stage ('Archive') {
-            gatlingArchive()
-        }
-
     }
 }
