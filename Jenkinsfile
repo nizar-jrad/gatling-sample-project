@@ -10,9 +10,9 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: 'refs/heads/master']],
                     doGenerateSubmoduleConfigurations: false,
-                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: baseline.dir]],
+                    extensions: [,
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: baseline.project]]
+                    userRemoteConfigs: [[url: 'https://github.com/nizar-jrad/gatling-sample-project.git']]
                 ])
             }
         }
