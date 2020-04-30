@@ -29,7 +29,8 @@ pipeline {
             steps {
                 script{
                     try {
-                        sh 'mvn gatling:test'
+                        sh 'mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation'
+                        sh 'mvn gatling:test -Dgatling.simulationClass=computerdatabase.ComputerWorld'
                     }catch (Exception e) {
                                 echo("Le build a échoué à cause de gatling")
                         }

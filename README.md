@@ -7,6 +7,6 @@ To test it out, simply execute the following command:
 
     $mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation
 
-or simply:
+or:
 
-    $mvn gatling:test
+    $mvn gatling:test -Dgatling.simulationClass=computerdatabase.ComputerWorld

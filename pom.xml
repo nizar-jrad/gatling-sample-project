@@ -3,7 +3,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.gatling.demo</groupId>
+  <groupId>io.gatling</groupId>
   <artifactId>gatling-sample-project</artifactId>
   <version>3.3.1</version>
 
@@ -21,18 +21,6 @@
     <dependency>
       <groupId>io.gatling.highcharts</groupId>
       <artifactId>gatling-charts-highcharts</artifactId>
-      <version>${gatling.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.gatling</groupId>
-      <artifactId>gatling-app</artifactId>
-      <version>${gatling.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.gatling</groupId>
-      <artifactId>gatling-recorder</artifactId>
       <version>${gatling.version}</version>
       <scope>test</scope>
     </dependency>
